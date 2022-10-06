@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block metaDescription %}Venez découvrir nos formations. Nous vous transmettrons notre savoir sur le maraîchage sol vivant, pour une agriculture réspectueuse de l'environnement.{% endblock %}
+
+{% block title %}FORMATIONS {{ parent() }}{% endblock %}
+
+{% block content %}
+<div class="">
+    <img class="img-perso" src="{{ asset('assets/photos/groupe-soleil.jpg')}}" alt="Groupe de formation">
+</div>
+<div class="container">
+        <div class="items-center mt-5 mb-5 g-5 text-center">
+
+            <h1>La liste des formations</h1>
+
+            <p>Venez vivre une expérience réelle d'apprentissage du maraîchage avec un professionnel passionné.
+            Consultez la liste des formations à venir juste en dessous.
+            Appelez-nous pour vous inscrire ou envoyez nous directemetn un mail via le <a class="text-success" href="{{ path('contact')}}">formulaire de contact.</a> </p>
+        </div>
+
+    {% for formation in formations %}
+        
+        <div class="row featurette mt-5 gx-5 text-center items-center justify-content-around">
+            <div class="col-md-7">
+                <h2>{{ formation.name }}</h2>
+
+                <p>Date du premier jour de formation : {{ formation.date|date('d-m-Y') }}
+                {{ formation.description }}<br>
+                 Le prix de la journée de formation est de : {{ (formation.price / 100)|number_format(2, ',', '.') }} €<br>
+                Le prix de la formation complète est de : {{ (formation.completePrice / 100)|number_format(2, ',', '.') }} €<br>
+                Vous serez au maximum : {{ formation.capacity }} par formation afin que je puisse prendre du temps pour chacun d'entre vous.</p>
+            </div>        
+            <div class="col-md-4">
+                <img class="body-image" src="/pictures/{{ formation.illustration }}" alt="{{ formation.name }}">
+            </div>        
+        </div>    
+
+        <div class="mt-5 mb-5 pb-5">
+            <img class="separator" src="{{ asset('assets/ink/separateur.svg')}}"><img class="separator-end" src="{{ asset('assets/ink/pois.png')}}">
+        </div>
+
+    {% endfor %}
+
+</div>
+{% endblock %}

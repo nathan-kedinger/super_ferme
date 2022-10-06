@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block metaDescription %}Passez vos commande pour vos paniers de légumes et de fruits de saison biologiques ou reservez vos places pour des formations.{% endblock %}
+
+{% block title %}NOUS CONTACTER {{ parent() }}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    
+
+            <div class="text-center mb-5 mt-5">
+                <h2>Nous contacter</h2>
+            </div>
+
+    
+    {% for message in app.flashes('notice') %}
+        <div class="alert alert-info">{{ message }}</div>
+    {% endfor %}
+
+    <div class="row gx-5 mb-5">
+        <div class="col-md-8">
+            <p class="lead text-center">C'est ici que vous pouvez nous contacter, pour reserver une formation, participer à un événement, ou tout simplement 
+            nous poser une super question !</p>
+            {{ form(form) }}
+        </div>    
+        <div class="col-md-4">
+            <h3>La Super Ferme</h3>
+            <hr>
+            <p>
+            <img class="mes-logos me-3" src="{{ asset('assets/photos/logos/logo-phone-black.png')}}" alt="Téléphone"> 06.37.87.15.21 <br><br>
+            <img class="mes-logos me-3" src="{{ asset('assets/photos/logos/logo-shop.png')}}" alt="Adresse"> 17 rue du Canton - Perigny - 17180<br><br>
+            <img class="mes-logos me-3" src="{{ asset('assets/photos/logos/logo-mail-black.png')}}" alt="Email"> robin@lasuperferme.fr
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

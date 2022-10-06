@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+{% block metaDescription %}Venez découvrir les produits proposés à la ventes à la super ferme. Fruits et légumes de saison en panier ou en vente libre.{% endblock %}
+{% block title %}PRODUITS {{ parent() }}{% endblock %}
+
+{% block content %}
+
+<!-- start Head picture-->
+    <img class="img-perso" src="{{ asset('assets/photos/legumes.jpg')}}" alt="Légumes">
+<!-- end Head picture-->
+
+<div class="container mt-5">
+    <div class="row justify-content-md-center text-center">
+        <div class="col col-md-10">
+            <div class=" mb-5">
+                <h1>Pourquoi nos produits sont délicieux? Parce que nous pensons à vous !</h1>
+            </div>
+
+            <p class=" mb-5 lead">Nos fruits et légumes produits de Juin à Décembre sont délicieux pour plusieurs raisons.
+            Tout d'abords, nos produits sont de saison plantés et récoltés avec amour en respectant les pratiques
+            du maraîchage <a class="text-success" href="{{ path('super_ferme')}}">sol vivant (MSV)</a>. C’est en grande partie grâce à cette technique
+            que nos légumes sont si goûtues.<br> 
+            Une autre raison pour laquelle nos légumes sont délicieux, c'est que nous conservons nos 
+            graines d'une année à l'autre. Plus les années passent et plus nos produits se sentent chez eux.<br>
+            De plus, la diversité des plantes que nous laissons cohabiter leur permet à elles, 
+            mais également aux insectes et aux oiseaux de s'épanouir.<br><br>
+
+
+            Alors voilà, c'est comme ça, que nous pensons à vous. Vous, qui allez manger nos légumes, 
+            récoltés à la main tous les jours. Vous à qui nous voulons le meilleur ! <br>
+        </div>
+    </div>
+
+        <div class="mt-5 mb-5">
+            <img class="separator" src="{{ asset('assets/ink/separateur.svg')}}"><img class="separator-end" src="{{ asset('assets/ink/tomate.png')}}">
+        </div>
+
+</div>
+<div class="container-fluid">
+
+
+        <div class="row d-flex align-items-center">
+            <div class="col-md-6 text-center ">
+                <h2 class="mb-5">Comment commander nos légumes et à quel prix?</h2>
+                
+                <h3 >Les deux options dans le détail :</h3><br>
+                <h4>- Le Super Panier ! Pour être régulier et solidaire, optez pour l'abonnement !</h4>
+                <p class="lead">Vous vous assurez d'avoir toujours des légumes disponibles et vous êtes solidaires 
+                grâce à un paiement en avance ou en 3 fois, et vous devenez adhérent de Canton 
+                Sème (dans la limite des 40 paniers disponibles).<br>
+                Deux tailles disponibles : <br>
+                - Le petit à 10€ (solo ou en couple)<br>
+                - Le grand à 15€ (gourmand ou famille)
+                
+                Pour reserver, vous avez la possibilité de nous contacter via le formulaire de <a class="text-success" href="">contact</a>.
+                Vous pouvez également nous contacter par téléphone au 06.37.87.15.21 (N'hésitez pas à utiliser
+                les SMS, nous pouvons ne pas toujours être disponibles pour répondre directement).<br>
+                Nous pourrons rapidement vous mettre sur la liste des abonnés.</p><br><br>
+                
+                
+                <h4>- La Petite Course ! Pour rester nomade, optez pour la vente au détail !</h4>
+                <p class="lead">Venez à la boutique choisir vos légumes aux horaires d'ouverture, quand l'envie vous prend et 
+                sans engagement (un soir par semaine et dans la limite de la production disponible).</p>
+
+            </div>
+            <div class="col-md-6 me-0 p-0">
+                <img class="body-image-big " src="{{ asset('assets/photos/panier-renverse.jpg')}}" alt="Vente à la ferme" >
+            </div>
+        </div>
+    
+        <div class="mt-5 mb-5">
+            <img class="separator" src="{{ asset('assets/ink/separateur.svg')}}"><img class="separator-end" src="{{ asset('assets/ink/pois.png')}}">
+        </div>
+
+        <div class="row d-flex align-items-center pb-5">
+            <div class="col-md-6 ms-0  p-0 ">
+                <img class="body-image-big " src="{{ asset('assets/photos/panier.jpg')}}" alt="Vente à la ferme" >
+            </div>
+            <div class="col-md-6 text-center">
+                <h2 class="">Quels légumes aurez-vous la chance de déguster?</h2>
+                <p class="lead">Voici une petite listes des légumes que vous pourrez retrouver dans vos paniers : </p>
+                <ul class="lead"> 
+                    <li>Choux</li>
+                    <li>Pommes de terre</li>
+                    <li>Carottes</li>
+                    <li>Epinards</li>
+                    <li>Radis</li>
+                    <li>Poireaux</li>
+                </ul><br>
+                <p class="lead">Evidemment, cette liste est non-exhaustive. En bon experimentateur, les 
+                surprises sont de mise. Attendez vous donc à des légumes plus colorés les uns que les autres.</p>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

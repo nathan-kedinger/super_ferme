@@ -1,19 +1,137 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <meta name="description" content="{% block metaDescription %}{% endblock %}">
+    <title>{% block title %} - Maraîchage biologique - légumes, fruits et formations{% endblock %}</title>
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    <!-- CSS only -->
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet"></script>
+    <!-- JavaScript Bundle with Popper -->
+
+    
+
+
+</head>
+<body>
+<!--NAVBAR-->
+      <nav class="navbar navbar-expand-md bg-white navbar-perso">
+         <a class="navbar-brand ms-3 " href="{{ path('home')}}"><img src="{{ asset('assets/photos/infographielasuperferme/canton-seme.png')}}"class="canton-seme-picture" ></a>
+        <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+
+         <!-- Left -->
+           <ul class="navbar-nav me-auto ms-5">
+              <li class="nav-item me-4">
+                  <a class="nav-link" href="{{ path('home')}}">Accueil</a>
+              </li>
+              <li class="nav-item me-4">
+                  <a class="nav-link" href="{{ path('canton_seme')}}">Canton sème</a>
+              </li>
+              <li class="nav-item me-4" >
+                  <a class="nav-link" href="{{ path('super_ferme')}}">La super Ferme</a>
+              </li>
+              <li class="nav-item me-4" >
+                  <a class="nav-link" href="{{ path('formations')}}">Nos formations</a>
+              </li>
+              <li class="nav-item me-4" >
+                  <a class="nav-link" href="{{ path('products')}}">Nos Produits</a>
+              </li>
+              <li class="nav-item me-4" >
+                  <a class="nav-link" href="{{ path('events')}}">Les événements</a>
+              </li>
+              <li class="nav-item me-4" >
+                  <a class="nav-link" href="{{ path('contact')}}">Contactez-nous</a>
+              </li>
+            </ul>
+            <!-- Right -->
+            <div class="navbar-nav me-1">
+              {% if app.user %}
+                <a class="me-2 nav-link"  href= "{{ path('account') }}">Mon compte  <small>({{ app.user.firstname }}) </small></a><a class="me-2 ms-2 nav-link" href="{{ path('logout') }}"> Déconnexion</a>
+              {% else %}
+                <a class="me-2 nav-link" href= "{{ path('login') }}">Connexion  </a><a class="me-2 ms-2 nav-link"  href="{{ path('register') }}">Inscription</a>
+              {% endif %}
+            </div>
+          </div>  
+      </nav>
+<!--END NAVBAR-->
+
+<!--CAROUSEL-->
+<main role="main">
+{% if block ('carousel') is defined %}
+    <div id="carouselExampleFade" class="carousel slide carousel-fade pointer-event" data-bs-ride="carousel">
+      <div class="carousel-inner carousel-dimensions">
+        <div class="carousel-item active">
+          <img src ="{{ asset('assets/photos/images/groupe.jpg') }}" class="bd-placeholder-img bd-placeholder-img-lg d-block img-carousel-perso" alt="Image de groupe">
+        </div>
+        <div class="carousel-item">
+          <img src="{{ asset('assets/photos/images/buvette.jpg') }}" class="bd-placeholder-img bd-placeholder-img-lg d-block img-carousel-perso" alt="Image buvette">     
+        </div>
+        <div class="carousel-item">
+          <img src="{{ asset('assets/photos/images/pancarte.jpg') }}" class="bd-placeholder-img bd-placeholder-img-lg d-block img-carousel-perso" alt="Image pancarte">     
+    
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+{% endif %}
+<!--END CAROUSEL-->
+
+{% block content %}{% endblock %}
+
+    <!-- Arrow to the top-->
+    <a href="#"><img src="{{ asset('assets/img/feuille.png') }}" class="arrow-top" ></a>
+    <!-- FOOTER -->
+</main>
+    <footer class="footer-custom text-center ">
+      <container>  
+        <div class="row">
+          <div class="col-md-4 footer-blind">
+            <img src="{{ asset('assets/photos/infographielasuperferme/LOGO-LSF.png') }}" alt="La super Ferme"><br>
+            <img src="{{ asset('assets/photos/infographielasuperferme/canton-seme.png')}}" alt="Canton sème"><br>
+            <img src="{{ asset('assets/photos/infographielasuperferme/AB.png') }}" alt="Agriculture Biologique">
+          </div>
+          <div class="col-md-4">
+            <div class="footer-blind">
+              <h3>LIENS UTILES</h3>
+              <a class="a-white" href="{{ path('home')}}">Accueil</a> |<a class="a-white" href="{{ path('canton_seme')}}">Canton sème</a> <br> <a class="a-white" href="{{ path('super_ferme')}}">La super Ferme</a> | <a class="a-white" href="formations">Nos formations</a> <br>
+               <a class="a-white" href="{{ path('products')}}">Nos Produits</a> | <a class="a-white" href="{{ path('contact')}}">Contactez-nous</a> <br> <a class="a-white" href="{{ path('events')}}">Les événements</a> 
+            </div>
+              <h3>LÉGAL</h3>
+            <a class="a-white" href="{{ path('legal')}}">Mentions légales</a>
+          </div>
+          <div class="col-md-4">
+            <h3>COORDONNÉES</h3>
+            <p>17 rue du Canton<br>
+            17180 Perigny - France
+            <h3>RÉSEAUX SOCIAUX</h3>
+            <a href="https://fr-fr.facebook.com/maraichagebioperigny/"><img class="mes-logos" src="{{ asset('assets/photos/logos/logo-facebook.png') }}" alt="Facebook"></a>
+            <a href=""><img class="mes-logos" src="{{ asset('assets/photos/logos/logo-instagram.png')}}" alt="Instagram"></a>
+          </div>
+        </div>
+            <p>
+                2019-2022 La Super Ferme <br>
+                <small>Ferme en maraîchage biologique à Perigny
+                </small>
+            </p>
+      </container>  
+    </footer>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" ></script>
+</body>
 </html>

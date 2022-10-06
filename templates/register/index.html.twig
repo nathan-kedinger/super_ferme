@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}INSCRIPTION {{ parent() }}{% endblock %}
+
+{% block content %}
+<div class="text-center mb-5 mt-5">
+    <h1>Inscription</h1>
+    <p class="lead mt-3">Entrez vos informations afin de vous inscrire</p>
+</div>
+
+{% if notification %}
+<div class="alert alert-info">{{ notification }}</div>
+{% endif %}
+<div class="container">
+    <div class="row justify-content-center pb-5">
+        <div class="col-md-8">
+{{ form(form) }}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

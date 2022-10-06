@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}INFORMATIONS PERSONNELLES {{ parent() }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5 pb-5 ">
+    <div class="text-center mb-5">
+        <h1>Reservez votre panier</h1>
+    </div>
+
+    
+    {% for product in products %}
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <img class="body-image-big" src="/pictures/{{ product.illustration }}" alt="{{ product.name }}">
+            </div> 
+            <div class="col-md-6">
+                <h2>{{ product.name }}</h2>
+                <h4>{{ product.subtitle }}</h4>
+                <p class="lead">{{ product.description }}<br>
+                 <strong>Prix :</strong> {{ (product.price / 100)|number_format(2, ',', '.') }} €<br><br>
+                 
+                 {% if product.availableQuantity > 1 %}
+                    Il nous reste {{ product.availableQuantity }} {{ product.name }}s.
+                 {% elseif product.availableQuantity == 1 %}
+                    Il nous reste {{ product.availableQuantity }} {{ product.name }}.
+                 {% else %}
+                    Il ne nous reste plus de {{ product.name }}
+                {% endif %}<br>
+
+                {% if product.availableQuantity > 0 %}
+                    {% if app.user.booked == false %}
+                        bouton ajouter un panier
+                        <a href="{{ path('add_to_cart', {'id' : product.id}) }}">S'abonner</a>
+                    {% else %}
+                        Vous avez déjà réservé un panier. <br>
+                        Voulez-vous arrêter votre abonnement au panier ?
+                        <a href="{{ path('remove_to_cart', {'id' : product.id}) }}">Arrêter</a>
+                        <small>(N'hésitez pas à nous contacter en cas de problème.)</small>
+                    {% endif %}
+                {% else %}
+                    Il ne nous reste malheureusement plus de paniers disponibles. Vous pouvez toujours passer 
+                    lors de l'ouverture du magasin le mercredi après midi. 
+                    Il nous reste généralement un peu de surplus.
+                {% endif %}
+                </p>
+            </div>
+        </div>
+        
+        {{ product.availableQuantity }}
+
+            <a href="{{ path('add_to_cart', {'id' : product.id}) }}">
+                <img src="{{ asset('assets/img/plus.png') }}" height="10px" alt="Ajouter un produit">
+            </a> 
+    {% endfor %}
+         Afficher mes informations
+
+    <a href="{{ path('change_informations') }}">Modifier mes information</a>
+    voir mes abonnements<br>
+</div>
+{% endblock %}

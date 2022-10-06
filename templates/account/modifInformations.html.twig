@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}COMPTE {{ parent() }}{% endblock %}
+
+{% block content %}
+<h1>Modifier mon mot de passe</h1>
+<hr>
+- <a href="{{ path('account') }}">Retourner dans mon espace</a><br>
+<hr>
+{% if notification %}
+    <div class="alert alert-info">{{ notification }}</div>
+{% endif %}
+{{ form(form)}}
+<hr>
+{% endblock %}

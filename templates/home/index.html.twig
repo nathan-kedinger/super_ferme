@@ -1,0 +1,134 @@
+{% extends "base.html.twig" %}
+{% block metaDescription %}Bienvenue chez Canton Sème à la super ferme. Ferme expérimentale en marâichage sol vivant biologique.{% endblock %}
+
+{% block title %}ACCUEIL {{ parent() }}{% endblock %}
+
+{% block carousel %}{% endblock %}
+
+{% block content %}
+
+
+        <!-- START THE FEATURETTES -->
+
+    <div class="container">
+        <div class="row featurette mt-5 gx-5 items-center justify-content-around">
+            <div class="col-md-7">
+                <div class="mt-5 mb-5">
+                    <h1 class=" text-center items-center justify-content-around featurette-heading">Canton sème à la Super Ferme</h1>
+                </div>
+                <p class="lead me-5"> <a class="text-success" href="{{ path('super_ferme')}}">La Super Ferme</a>, c’est un projet de création d’une ferme 
+                    maraîchère biologique sur 3 hectares au coeur de la ville de 
+                    Périgny, aux abords de La Rochelle. La Super Ferme se veut 
+                    respectueuse de la nature et proche des habitants, pour 
+                    permettre à chacun de consommer des produits sains, locaux, 
+                    de qualité  et de partager des moments conviviaux au coeur de 
+                    la nature. Les légumes sont en vente directe à la ferme 2 soirs 
+                    par semaine, de juin à septembre, au 17 rue du Canton à Perigny.<br>
+                    Le lieu abrite également l'association <a class="text-success" href="{{ path('canton_seme')}}">Canton Sème</a>, 
+                    qui s'occupe quant à elle de la partie accueil du public, vie et échanges.</p>
+            </div>
+            <div class="col-md-4">
+                <img class="body-image" src="{{ asset('assets/photos/infographielasuperferme/vente.png')}}" alt="Vente à la ferme" >
+            </div>
+        </div>
+
+        <div class="mt-5 mb-5">
+            <img class="separator" src="{{ asset('assets/ink/separateur.svg')}}"><img class="separator-end" src="{{ asset('assets/ink/pois.png')}}">
+        </div>
+
+        <div class="mt-5 mb-5">
+            <span class="text-center ">
+                <h1>Les évenements à venir à la Super Ferme</h1>
+            </span>
+        </div>
+        <div class="row gx-4">
+            <div class="col-md-7 mt-3">
+                <div id="formations-carousel" class="carousel slide pointer-event" data-bs-ride="carousel">
+                    <div class="carousel-inner carousel-dimensions">
+                      {% for event in events %}
+                        <div class="carousel-item active carousel-events-blocks">
+                            <div class="ms-3 mb-3">
+                                <h2>{{ event.name }}</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="me-5">
+                                        <img class="body-image" src="pictures/{{ event.illustration }}" alt="{{ event.name}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="ms-5 p-4 item-center">
+                                        <p>{{ event.description }}</p>
+                                        <p>Date de l'événement: {{ event.date|date('d-m-Y') }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#formations-carousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#formations-carousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-5 mt-3 shadow p-3 mb-5 bg-body rounded text-center">
+                <h2 class="featurette-heading">Il s'en passe des choses à la Super Ferme !</h2>
+                    <div class="border border-4 border-success mb-4 p-4">
+                        <p class="lead">Venez nous rejoindre lors de nos événements. C'est l'occasion
+                        d'apprendre, d'échanger et tout simplement d'être ensemble.</p>
+                        <p class="lead">Retrouvez la liste détaillée des événements à venir, directement ici : </p>
+                        <a class="btn btn-success mb-4" href="{{ path('events')}}">Les événements</a>
+                        
+                        <p class="lead">Nous organisons aussi des formations, sur le maraîchage sol vivant, avec l'association <a class="text-success" href="{{ path('canton_seme')}}">Canton Sème.</a></p> 
+
+                        <p class="lead">Venez-vous renseigner sur les formations ici : </p>
+                        <a class="btn btn-success mb-4" href="{{ path('formations')}}">Les formations</a>
+                    </div>
+            </div>
+        </div>
+
+        <div class="mt-5 mb-5">
+            <img class="separator" src="{{ asset('assets/ink/separateur.svg')}}"><img class="separator-end" src="{{ asset('assets/ink/tomate.png')}}">
+        </div>
+
+        <div class="row featurette">
+            <div class="col-md-8">
+                <div class="mt-5 mb-5">
+                    <h1 class="featurette-heading text-center">Les Chantiers</h1>           
+                </div>
+                <p class="lead">On a toujours besoin d'un petit coup de main à la ferme, 
+                que ce soit en maraichage ou en construction. N'hésitez pas à venir voir l'<a class="text-success" href="">agenda des événements</a> 
+                 et à nous contacter pour participer.</p>
+            </div>
+            <div class="col-md-4">
+                <img class="body-image" src="{{ asset('assets/photos/groupes-chantier.jpg')}}" alt="Réunion de début de journée">
+            </div>
+        </div>
+    
+        <div class="mt-5 mb-5">
+            <img class="separator" src="{{ asset('assets/ink/separateur.svg')}}"><img class="separator-end" src="{{ asset('assets/ink/feuille.png')}}">
+        </div>
+
+            <div class="mt-5 mb-5">
+                <h1>Et parce qu'à la Super Ferme on a des Super Star qui passent à la télé :</h1>
+            </div>
+            <div class="mb-5 mt-3">
+                <div class="row pb-5">
+                    <div class="col-md-6 video-responsive">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/uldYRrEBlYI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-md-6 video-responsive">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/vTOW-avGjdU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+        <!-- /END THE FEATURETTES -->
+
+    </div><!-- /.container -->
+{% endblock %}

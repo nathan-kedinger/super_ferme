@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block metaDescription %}Regroupements, apprentissages, échanges, partages et festivitées. Retrouvez nous lors de nos événements à la ferme.{% endblock %}
+
+{% block title %}EVENEMENTS {{ parent() }}{% endblock %}
+
+{% block content %}
+
+<!-- start Head picture-->
+    <img class="img-perso" src="{{ asset('assets/photos/images/buvette.jpg')}}" alt="Légumes">
+<!-- end Head picture-->
+
+<div class="container">
+        <div class="items-center mt-5 mb-5 g-5 text-center">
+
+            <h1 class="mb-5">Les supers événements de la Super Ferme</h1>
+
+            <p class="lead">Parce que nous aimons nous retrouver, que ce soit pour échanger, apprendre, 
+            nous ressourcer, construire, et maraîcher... Alors voilà les événements auxquels vous pourrez participer ainsi que les jours
+            où nous aurons besoin de vous sur la ferme :</p>
+        </div>
+
+    {% for event in events %}
+        <div class="mt-5 mb-5 pb-3">
+            <img class="separator" src="{{ asset('assets/ink/separateur.svg')}}"><img class="separator-end" src="{{ asset('assets/ink/feuille.png')}}">
+        </div>
+
+        <div class="row featurette mt-5 pb-5 gx-5 text-center align-items-center justify-content-around">
+            <div class="col-md-7">
+                <h2 class="mb-5">{{ event.name }}</h2>
+
+                <p class="lead">Date de l'événement : {{ event.date|date('d-m-Y') }}<br>
+                Thème de l'événment : {{ event.description }}<br>
+              
+            </div>        
+            <div class="col-md-4">
+                <img class="body-image" src="/pictures/{{ event.illustration }}" alt="{{ event.name }}">
+            </div>        
+        </div>    
+
+
+    {% endfor %}
+
+{% endblock %}

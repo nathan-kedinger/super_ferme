@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}VOTRE COMPTE {{ parent() }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row jusify-content-center mt-5">
+        <div class="col-md-8">
+            <h1 class="mb-5">Vos informations personnelles</h1>
+            <h4 class="mb-5">Bonjour {{ app.user.firstname }}</h4>
+            <p class="lead">Bienvenue dans votre espace personnel.</p>
+            {% if is_granted('ROLE_ADMIN') %}
+            <a class="text-success" href="{{ path('admin') }}">Acceder au backoffice</a><br>
+            {% endif %}
+            <a class="text-success"href="{{ path('change_informations') }}">Modifier mes information</a><br>
+            <p class="lead">Modifier mes commandes de panier(Bientôt disponible)</p><br>
+        </div>
+        <div class="col-md-4">
+            <h2 class="mb-5">Vos commandes</h2>
+            <p class="lead">Vous pourrez bientôt gérer vos inscriptions à des formations et vos réservations de panier ici.<br>
+            Nous vous tiendrons informé.<br> Pour l'instant, nous vous invitons à nous contacter via le <a class="text-success" href="{{ path('contact')}}">formulaire de contact</a></p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

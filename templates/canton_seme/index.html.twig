@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+{% block metaDescription %}L'association Canton Sème a le plaisir de vous accueillir. formations, apprentissage et échanges autour du maraîchage biologique.{% endblock %}
+
+{% block title %}CANTON SEME {{ parent() }}{% endblock %}
+
+{% block content %}
+
+<div class="">
+    <img class="img-perso" src="{{ asset('assets/photos/images/canton-seme.jpg')}}" alt="Groupe Canton sème">
+</div>
+<div class="container">
+    <div class="row mt-5 mb-5 g-5 text-center  justify-content-around">
+        <div class="col-8 items-center">
+
+            <h2>Canton Sème</h2>
+
+            <p>L'association a pour objet le fait de : rendre accessible 
+            à tous les publics la pratique du maraîchage et de l’éco-construction. 
+            Mettre en place des actions de sensibilisation, de découverte, 
+            d’éducation et de formations liées à l’agriculture biologique et à 
+            l’alimentation durable. </p>
+        </div>
+        <div class="col-md-4 mb-5">
+            <img class="body-image" src="{{ asset('assets/photos/serre.jpg') }}" alt="Formation recto">
+        </div>
+    </div>
+</div>     
+
+
+<div class="bande-centrale container-fluid ">
+    <div class="container"> 
+        <div class="row  mt-5 ">
+            <div class="col-md-4">
+                <img class="img-deco " src="{{ asset('assets/photos/groupe-soleil.jpg') }}" alt="Groupe soleil">
+            </div>
+            <div class="col-md-4">
+                <img class="img-deco" src="{{ asset('assets/photos/stand.jpg') }}" alt="Stand">
+            </div>        
+            <div class="col-md-4">
+                <img class="img-deco" src="{{ asset('assets/photos/dos.jpg') }}" alt="Promeneurs">
+            </div>
+        </div>       
+    </div>
+</div>
+
+    <div class="mt-5 mb-5">
+        <img class="separator" src="{{ asset('assets/ink/separateur.svg')}}"><img class="separator-end" src="{{ asset('assets/ink/feuille.png')}}" alt="Feuille">
+    </div>
+
+<div class="container">
+
+    <div class="row mt-5 mb-5 g-5 text-center justify-content-around">
+        <div class="col-md-4 mb-5">
+            <img class="body-image" src="{{ asset('assets/photos/images/fleur.jpg') }}" alt="Fleur">
+        </div>
+        <div class="col-md-8 items-center">
+            <h2>Un bol d'air frais au coeur de la ville</h2>
+            <p>Nous rejoindre, c'est l'occasion de prendre un grand bol d'air frais. 
+            C'est l'occasion de faire une petite pause dans son quotidien et de venir 
+            mettre les mains dans la terre. Et mettre les mains dans la terre oui, 
+            mais sous l'œil bienveillant et expert d'un professionnel passionné. </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
