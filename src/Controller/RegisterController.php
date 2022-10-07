@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Class\MailClass;
+use App\Classes\MailClass;
 use App\Entity\User;
 use App\Form\RegisterType;
 use Doctrine\ORM\EntityManagerInterface;

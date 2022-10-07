@@ -1,5 +1,5 @@
 <?php
-namespace App\Class;
+namespace App\Classes;
 
 use Mailjet\Client;
 use Mailjet\Resources;
@@ -16,7 +16,7 @@ class MailClass
             'Messages' => [
                 [
                     'From' => [
-                        'Email' => "nathan.kedinger@gmail.com",
+                        'Email' => "robin@lasuperferme.fr",
                         'Name' => "La Super Ferme"
                     ],
                     'To' => [

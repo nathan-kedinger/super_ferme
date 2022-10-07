@@ -49,11 +49,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $tel = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable:true)]
     private ?string $company = null;
 
     #[ORM\Column]
-    private ?bool $booked = null;
+    private bool $booked = false;
 
     public function getId(): ?int
     {
