@@ -55,6 +55,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private bool $booked = false;
 
+    #[ORM\Column(length: 255)]
+    private ?string $bookedPoduct = null;
+
+    
+
     public function getId(): ?int
     {
         return $this->id;
@@ -261,6 +266,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setBooked(bool $booked): self
     {
         $this->booked = $booked;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of bookedPoduct
+     */ 
+    public function getBookedPoduct()
+    {
+        return $this->bookedPoduct;
+    }
+
+    /**
+     * Set the value of bookedPoduct
+     *
+     * @return  self
+     */ 
+    public function setBookedPoduct($bookedPoduct)
+    {
+        $this->bookedPoduct = $bookedPoduct;
 
         return $this;
     }

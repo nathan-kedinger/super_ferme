@@ -11,6 +11,10 @@
             <p class="lead">Bienvenue dans votre espace personnel.</p>
             {% if is_granted('ROLE_ADMIN') %}
             <a class="text-success" href="{{ path('admin') }}">Acceder au backoffice</a><br>
+
+            afficher le nombre de paniers réservés
+            créer un lien vers la liste des utilisateurs qui on commandé un panier avec numéro de téléphone et infos succintes
+
             {% endif %}
             <a class="text-success"href="{{ path('change_informations') }}">Modifier mes information</a><br>
             <p class="lead">Modifier mes commandes de panier(Bientôt disponible)</p><br>

@@ -203,7 +203,7 @@ footer h3{
 
     }
 
-    .video-responsive { 
+    .video-responsive, .g-map { 
         margin-top: 10px;
         overflow:hidden; 
         padding-bottom:56.25%; 
@@ -211,7 +211,7 @@ footer h3{
         height:0;
     }
         
-    .video-responsive iframe {
+    .video-responsive iframe, .g-map iframe {
         left:0; 
         top:0; 
         height:100%;

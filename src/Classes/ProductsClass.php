@@ -24,7 +24,7 @@ class ProductsClass{
         return $products;
     }
 
-    public function add(int $id)
+    public function add(int $id, UserInterface $user)
     {
         $product = $this->em->getRepository(Products::class)->findOneById($id);
         
@@ -41,10 +41,10 @@ class ProductsClass{
         $this->em->persist($product);
         $this->em->flush();
 
-        $this->booking();
+        $this->booking($id, $user);
     }
 
-    public function remove(int $id)
+    public function remove(int $id, UserInterface $user)
     {
         $product = $this->em->getRepository(Products::class)->findOneById($id);
         $availableProducts = $product->getAvailableQuantity();
@@ -58,23 +58,28 @@ class ProductsClass{
 
         $this->em->persist($product);
         $this->em->flush();
+
+        $this->unBooking($id, $user);
+
        
     }
 
-    public function booking ()
+    public function booking (int $id, User $user)
     {   
-       $user = $this->em->getUser();
-       dd($user);
+        $user->setBooked(true);
+        $user->setBookedPoduct($id);
+        $this->em->persist($user);
+        $this->em->flush();
 
-        //$user->$users->setBooked(true);
 
     }
 
-    public function unbooking ()
+    public function unbooking (int $id, User $user)
     {
-        $user= $this->user;
-
         $user->setBooked(false);
+        $user->setBookedPoduct($id);
+        $this->em->persist($user);
+        $this->em->flush();
 
     }
 }

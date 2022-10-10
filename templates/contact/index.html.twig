@@ -9,7 +9,7 @@
     
 
             <div class="text-center mb-5 mt-5">
-                <h2>Nous contacter</h2>
+                <h1>Nous contacter</h1>
             </div>
 
     
@@ -18,12 +18,12 @@
     {% endfor %}
 
     <div class="row gx-5 mb-5">
-        <div class="col-md-8">
+        <div class="col-md-7">
             <p class="lead text-center">C'est ici que vous pouvez nous contacter, pour reserver une formation, participer à un événement, ou tout simplement 
             nous poser une super question !</p>
             {{ form(form) }}
         </div>    
-        <div class="col-md-4">
+        <div class="col-md-5">
             <h3>La Super Ferme</h3>
             <hr>
             <p>
@@ -31,8 +31,15 @@
             <img class="mes-logos me-3" src="{{ asset('assets/photos/logos/logo-shop.png')}}" alt="Adresse"> 17 rue du Canton - Perigny - 17180<br><br>
             <img class="mes-logos me-3" src="{{ asset('assets/photos/logos/logo-mail-black.png')}}" alt="Email"> robin@lasuperferme.fr
             </p>
+     
         </div>
     </div>
+        <h1 class="text-center mb-5">Où nous retrouver ?</h1>
+        <div class="row justify-content-center">
+            <div class=" col-md-6 g-map pb-5">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2763.8970313029004!2d-1.1000425846669357!3d46.15279649525269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48014d89374a89a9%3A0x44d2bcc27c3af7fd!2s17%20Rue%20du%20Canton%2C%2017180%20Perigny!5e0!3m2!1sfr!2sfr!4v1665403902969!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>  
+        </div>
 </div>
 
 {% endblock %}
