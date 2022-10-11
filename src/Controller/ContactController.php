@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Class\MailClass;
+use App\Classes\MailClass;
 use App\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

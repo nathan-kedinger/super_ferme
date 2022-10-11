@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class AccountController extends AbstractController
 {
@@ -21,14 +22,20 @@ class AccountController extends AbstractController
     }
 
     #[Route('/compte', name: 'account')]
-    public function index(): Response
+    public function index(ProductsClass $productsClass, UserInterface $user): Response
     {
+  
+        $productsList = $productsClass->productList();
+
+        $user = $this->getUser();
+
         return $this->render('account/index.html.twig', [
-            
+            'products' => $productsList,
+            'user' => $user
         ]);
     }
     /**
-     * Undocumented function
+     * Bring to the booking place
      *
      * @param ProductsClass $productsClass
      * @return Response
@@ -45,7 +52,7 @@ class AccountController extends AbstractController
     }
     
     /**
-     * this function is a controller who permit to add product to the cart
+     * Permit to add product to the cart
      */
     #[Route('/compte/paniers/add/{id}', name: 'add_to_cart')]
     public function add(ProductsClass $productClass, int $id, User $user): Response
@@ -61,7 +68,9 @@ class AccountController extends AbstractController
             
         ]); 
     }
-
+    /**
+     * Permit to remove product from the cart
+     */
     #[Route('/compte/paniers/remove/{id}', name: 'remove_to_cart')]
     public function remove(ProductsClass $productClass, int $id, User $user): Response
     {
@@ -76,18 +85,5 @@ class AccountController extends AbstractController
             
         ]); 
     }
-
-
-
-    /*#[Route('/nos-produits', name: 'app_products')]
-    public function show(): Response
-    {
-        $products =$this->em->getRepository(Products::class)->findAll();
-
-        return $this->render('account/booking.html.twig', [
-            'products' => $products
-        ]);
-    }*/
-
 }
 

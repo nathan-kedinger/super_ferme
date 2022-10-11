@@ -7,13 +7,15 @@
     <div class="text-center mb-5">
         <h1>Reservez votre panier</h1>
     </div>
+    <a  class="btn btn-success" href="{{ path('account') }}">← Retour sur mon espace</a><br>
+    <p class="lead text-center">Vous pouvez gérer votre abonnement aux paniers ici. </p>
 
     
     {% for product in products %}
         <hr>
         <div class="row">
             <div class="col-md-6">
-                <img class="body-image-big" src="/pictures/{{ product.illustration }}" alt="{{ product.name }}">
+                <img class="body-image-big pb-5" src="/pictures/{{ product.illustration }}" alt="{{ product.name }}">
             </div> 
             <div class="col-md-6">
                 <h2>{{ product.name }}</h2>
@@ -27,36 +29,27 @@
                     Il nous reste {{ product.availableQuantity }} {{ product.name }}.
                  {% else %}
                     Il ne nous reste plus de {{ product.name }}
-                {% endif %}<br>
+                {% endif %}<br><br>
 
                 {% if product.availableQuantity > 0 %}
                     {% if app.user.booked == false %}
-                        bouton ajouter un panier
-                        <a href="{{ path('add_to_cart', {'id' : product.id}) }}">S'abonner</a>
+                    Cliquez ici pour commencer votre abonnement :
+                        <a class="btn btn-success" href="{{ path('add_to_cart', {'id' : product.id}) }}">S'abonner</a>
                     {% else %}
-                        Vous avez déjà réservé un panier. <br>
-                        Voulez-vous arrêter votre abonnement au panier ?
-                        <a href="{{ path('remove_to_cart', {'id' : product.id}) }}">Arrêter</a>
+                        Vous avez pris un abonnement pour un panier. <br>
+                        Voulez-vous arrêter votre abonnement ?
+                        <a class="btn btn-success" href="{{ path('remove_to_cart', {'id' : product.id}) }}">Arrêter</a><br>
                         <small>(N'hésitez pas à nous contacter en cas de problème.)</small>
                     {% endif %}
                 {% else %}
                     Il ne nous reste malheureusement plus de paniers disponibles. Vous pouvez toujours passer 
-                    lors de l'ouverture du magasin le mercredi après midi. 
+                    lors de l'ouverture du magasin, le mercredi après midi. 
                     Il nous reste généralement un peu de surplus.
                 {% endif %}
                 </p>
             </div>
         </div>
         
-        {{ product.availableQuantity }}
-
-            <a href="{{ path('add_to_cart', {'id' : product.id}) }}">
-                <img src="{{ asset('assets/img/plus.png') }}" height="10px" alt="Ajouter un produit">
-            </a> 
     {% endfor %}
-         Afficher mes informations
-
-    <a href="{{ path('change_informations') }}">Modifier mes information</a>
-    voir mes abonnements<br>
 </div>
 {% endblock %}

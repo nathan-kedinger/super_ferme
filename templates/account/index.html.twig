@@ -9,20 +9,36 @@
             <h1 class="mb-5">Vos informations personnelles</h1>
             <h4 class="mb-5">Bonjour {{ app.user.firstname }}</h4>
             <p class="lead">Bienvenue dans votre espace personnel.</p>
-            {% if is_granted('ROLE_ADMIN') %}
-            <a class="text-success" href="{{ path('admin') }}">Acceder au backoffice</a><br>
-
-            afficher le nombre de paniers réservés
-            créer un lien vers la liste des utilisateurs qui on commandé un panier avec numéro de téléphone et infos succintes
-
-            {% endif %}
             <a class="text-success"href="{{ path('change_informations') }}">Modifier mes information</a><br>
-            <p class="lead">Modifier mes commandes de panier(Bientôt disponible)</p><br>
+            {% if is_granted('ROLE_ADMIN') %}
+
+            <h2 class="mb-3 mt-3">Quelques données de base</h2>
+                <p class="lead">Vos clients on reservé :</p>
+            {% for product in products %}
+                <p class="lead"> - {{ product.bookedQuantity }} {{ product.name }}</p>
+            {% endfor %}
+                <div class"pb-5">
+                    <a class="btn btn-primary mb-5" href="{{ path('admin') }}">Acceder au backoffice</a><br>
+                </div>
+            {% endif %}
+
+
+
         </div>
         <div class="col-md-4">
             <h2 class="mb-5">Vos commandes</h2>
-            <p class="lead">Vous pourrez bientôt gérer vos inscriptions à des formations et vos réservations de panier ici.<br>
-            Nous vous tiendrons informé.<br> Pour l'instant, nous vous invitons à nous contacter via le <a class="text-success" href="{{ path('contact')}}">formulaire de contact</a></p>
+            <p class="lead">Vous pouvez gérer vos réservations de panier ici :</p> 
+            <a class="btn btn-success" href="{{ path('paniers') }}">Reserver mon panier bio →</a><br><br>
+            {% if user.bookedPoduct != null %}
+                <p class="lead">Vous aves actuellement un abonnement pour un {{ user.bookedPoduct }}</p>
+            {% else %}
+                <p class="lead">Vous n'avez pas d'abonnement en cours.</p>
+            {% endif %}
+            <hr>
+            <p>Vous pourrez bientôt gérer vos inscriptions aux formations ici.<br>
+            Nous vous tiendrons informé.<br> Pour l'instant, nous vous invitons à nous contacter par 
+            téléphone, par mail, ou via le <a class="text-success" href="{{ path('contact')}}">formulaire 
+            de contact</a> .</p>
         </div>
     </div>
 </div>

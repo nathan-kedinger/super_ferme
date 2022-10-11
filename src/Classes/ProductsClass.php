@@ -4,7 +4,6 @@ namespace App\Classes;
 use App\Entity\Products;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class ProductsClass{
@@ -28,6 +27,7 @@ class ProductsClass{
     {
         $product = $this->em->getRepository(Products::class)->findOneById($id);
         
+        $productName = $product->getName();
         
         $availableProducts = $product->getAvailableQuantity();
         $availableProducts--;
@@ -41,12 +41,13 @@ class ProductsClass{
         $this->em->persist($product);
         $this->em->flush();
 
-        $this->booking($id, $user);
+        $this->booking($productName, $user);
     }
 
     public function remove(int $id, UserInterface $user)
     {
         $product = $this->em->getRepository(Products::class)->findOneById($id);
+
         $availableProducts = $product->getAvailableQuantity();
         $availableProducts++;
 
@@ -59,26 +60,26 @@ class ProductsClass{
         $this->em->persist($product);
         $this->em->flush();
 
-        $this->unBooking($id, $user);
+        $this->unBooking($user);
 
        
     }
 
-    public function booking (int $id, User $user)
+    public function booking ($productName, User $users)
     {   
-        $user->setBooked(true);
-        $user->setBookedPoduct($id);
-        $this->em->persist($user);
+        $users->setBooked(true);
+        $users->setBookedPoduct($productName);
+        $this->em->persist($users);
         $this->em->flush();
 
 
     }
 
-    public function unbooking (int $id, User $user)
+    public function unbooking (User $users)
     {
-        $user->setBooked(false);
-        $user->setBookedPoduct($id);
-        $this->em->persist($user);
+        $users->setBooked(false);
+        $users->setBookedPoduct(null);
+        $this->em->persist($users);
         $this->em->flush();
 
     }

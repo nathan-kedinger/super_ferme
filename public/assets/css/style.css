@@ -32,6 +32,16 @@ main{
 .a-white:hover{
     color: rgb(200, 240, 200)
 }
+
+.cookie-banner{
+    border: solid 2px #1d965d;
+    background-color: white;
+    color: #1d965d;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100;
+}
 /*general*/
 
 
