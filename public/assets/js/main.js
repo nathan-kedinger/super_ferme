@@ -1,6 +1,8 @@
 //variables arrow-up
 let arrowTop;
 
+let responsiveVideo, videoFacade;
+
 window.onload = () => {
 
 /**
@@ -13,7 +15,21 @@ window.onload = () => {
  
     window.addEventListener('scroll',arrowAppear);
 
+
+/**
+ * 
+ * lazy third part-video
+ * 
+ */
+
+    responsiveVideo = document.querySelector('.video-farm');
+    //responsiveVideo.style.display = "none";
+    videoFacade = document.querySelector('.video-facade');
+    
+    videoFacade.addEventListener('mouseover',showVideo);
+
 }
+
 
 
 
@@ -40,5 +56,16 @@ function arrowAppear(){
         arrowTop.style.opacity = "1";
         arrowTop.style.transition = "400ms linear";
     }
+}
 
+/**
+ * 
+ * lazy third part-video
+ * 
+ */
+
+function showVideo(){
+
+        responsiveVideo.style.display = "block";
+        videoFacade.style.display = "none";
 }

@@ -33,15 +33,14 @@ main{
     color: rgb(200, 240, 200)
 }
 
-.cookie-banner{
-    border: solid 2px #1d965d;
-    background-color: white;
-    color: #1d965d;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100;
-}
+/* to avoid invisible text on load*/
+@font-face {
+    font-family: 'Pacifico';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v12/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2) format('woff2');
+    font-display: swap;
+  }
 /*general*/
 
 
@@ -127,6 +126,16 @@ main{
     color: white;
 }
 
+
+/*youtube*/
+
+.video-farm{
+    display: none;
+}
+
+/*end  youtube*/
+
+
 /*bande centrale*/
 .bande-centrale{
     background-color: #0a7467;
@@ -142,7 +151,7 @@ main{
     margin-top: -35px;
     margin-bottom: 35px;
 }
-/*bande centrale*/
+/*end bande centrale*/
 
 /*body*/
 
@@ -213,6 +222,11 @@ footer h3{
 
     }
 
+    .video-farm{
+        display: none;
+        visibility: hidden;
+    }
+
     .video-responsive, .g-map { 
         margin-top: 10px;
         overflow:hidden; 
@@ -231,6 +245,10 @@ footer h3{
 
     .container{
         width: 94%;
+    }
+
+    .video-farm, .video-facade{
+        display: none;
     }
 }
 

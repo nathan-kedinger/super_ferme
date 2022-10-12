@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Classes\Cart;
-use App\Entity\Products;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,10 +14,10 @@ class CartController extends AbstractController
         $this->entityManager = $entityManager;
     }
 
-    #[Route('', name: 'account_book')]
+    #[Route('/qdfsgl!kjqsdlfgk', name: 'qsdfgkjlhqsdflgk')]
     public function index(): Response
     {
 
-        return $this->render('cart/index.html.twig');
+        return $this->render('home/index.html.twig');
     } 
 }
