@@ -16,7 +16,7 @@ class MailClass
             'Messages' => [
                 [
                     'From' => [
-                        'Email' => "robin@lasuperferme.fr",
+                        'Email' => "admin@bts-sio-kedinger.fr",
                         'Name' => "La Super Ferme"
                     ],
                     'To' => [

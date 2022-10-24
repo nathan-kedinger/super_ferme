@@ -10,6 +10,7 @@
 
         <!-- START THE FEATURETTES -->
 
+<!--PRESENTATIONS START-->
     <div class="container">
         <div class="row featurette mt-5 gx-5 items-center justify-content-around">
             <div class="col-md-7">
@@ -31,11 +32,52 @@
                 <img class="body-image" src="{{ asset('assets/photos/infographielasuperferme/vente.png')}}" alt="Vente à la ferme" >
             </div>
         </div>
-
+<!--PRESENTATIONS END-->
+    
         <div class="mt-5 mb-5">
             <img class="separator" src="{{ asset('assets/ink/separateur.svg')}}"><img class="separator-end" src="{{ asset('assets/ink/pois.png')}}">
         </div>
 
+<!--MENUS BIS START-->
+        <h1 class="text-center mb-5">Canton Sème</h1>
+
+        <p class="lead text-center mb-5 mt-5 pb-5">L'association Canton Sème, c'est plusieurs choses. Tout d'abord, c'est une Amap, où vous avez la possibilité de venir chercher 
+        vos légumes sous forme de paniers et ce, toutes les semaines. C'est également des formations, où vous pouvez venir apprendre
+        le maraîchage sol vivant. Et aussi, ce sont des événements, que nous organisons, pour nous regrouper avec nos adhérents, et imaginer le 
+        futur de notre chère association.</p>
+
+    </div>
+
+        <div class="bande-centrale container-fluid mt-5">
+                <div class="row  justify-content-center mt-5">
+                    <div class="col-md-4 mb-5 d-flex justify-content-center position-relative">
+                        <a class="bloc-img mb-4" href="">
+                            <img class="img-deco " src="{{ asset('assets/photos/panier-renverse.jpg') }}" alt="Amap">
+                            <h3 class="position-absolute top-50 start-50 translate-middle bc-text">L'AMAP</h3>
+                        </a>
+                    </div>
+                    <div class="col-md-4  mb-5 d-flex justify-content-center position-relative">
+                        <a class="bloc-img mb-4" href="">
+                            <img class="img-deco" src="{{ asset('assets/photos/groupe-soleil.jpg') }}" alt="Formations">
+                            <h3 class="position-absolute top-50 start-50 translate-middle bc-text">LES FORMATIONS</h3>
+                        </a>
+                    </div>        
+                    <div class="col-md-4  mb-5 d-flex justify-content-center position-relative">
+                        <a class="bloc-img mb-4" href="">
+                            <img class="img-deco" src="{{ asset('assets/photos/stand.jpg') }}" alt="Événeùents">
+                            <h3 class="position-absolute top-50 start-50 translate-middle bc-text">LES ÉVÉNEMENTS</h3>
+                        </a>
+                    </div>
+                </div>       
+        </div>
+<!--MENUS BIS END-->
+
+    <div class="container">
+        <div class="mt-5 mb-5">
+            <img class="separator" src="{{ asset('assets/ink/separateur.svg')}}"><img class="separator-end" src="{{ asset('assets/ink/feuille.png')}}" alt="Feuille">
+        </div>
+
+<!--EVENTS START-->
         <div class="mt-5 mb-5">
             <span class="text-center ">
                 <h1>Les évenements à venir à la Super Ferme</h1>
@@ -43,7 +85,7 @@
         </div>
         <div class="row gx-4">
             <div class="col-md-7 mt-3">
-                <div id="formations-carousel" class="carousel slide pointer-event" data-bs-ride="carousel">
+                <div id="formations-carousel" class="carousel carousel-dark slide pointer-event" data-bs-ride="carousel">
                     <div class="carousel-inner carousel-dimensions">
                       {% for event in events %}
                         <div class="carousel-item active carousel-events-blocks">
@@ -91,11 +133,15 @@
                     </div>
             </div>
         </div>
+<!--EVENTS END-->
+
+
 
         <div class="mt-5 mb-5">
             <img class="separator" src="{{ asset('assets/ink/separateur.svg')}}"><img class="separator-end" src="{{ asset('assets/ink/tomate.png')}}">
         </div>
 
+<!--CHANTIERS START-->
         <div class="row featurette">
             <div class="col-md-8">
                 <div class="mt-5 mb-5">
@@ -105,15 +151,17 @@
                 que ce soit en maraichage ou en construction. N'hésitez pas à venir voir l'<a class="text-success" href="">agenda des événements</a> 
                  et à nous contacter pour participer.</p>
             </div>
-            <div class="col-md-4">
-                <img class="body-image" src="{{ asset('assets/photos/groupes-chantier.jpg')}}" alt="Réunion de début de journée">
+            <div class="col-md-4 ">
+                <img class="body-image border border-1 border-success" src="{{ asset('assets/photos/groupes-chantier.jpg')}}" alt="Réunion de début de journée">
             </div>
         </div>
+<!--CHANTIERS END-->
     
         <div class="mt-5 mb-5">
             <img class="separator" src="{{ asset('assets/ink/separateur.svg')}}"><img class="separator-end" src="{{ asset('assets/ink/feuille.png')}}">
         </div>
 
+<!--VIDEOS START-->
             <div class="video-facade">
                 <div class="mt-5 mb-5 ">
                     <h1>Et parce qu'à la Super Ferme on a des Super Star qui passent à la télé :</h1>
@@ -131,7 +179,7 @@
             </div>
             <div class="video-farm">
                 <div class="mt-5 mb-5 ">
-                    <h1>Et parce qu'à la Super Ferme on a des Super Star qui passent à la télé :</h1>
+                    <h1>Et parce qu'à la Super Ferme, on a des Super Star qui passent à la télé :</h1>
                 </div>
                 <div class="mb-5 mt-3">
                     <div class="row pb-5">
@@ -144,6 +192,27 @@
                     </div>
                 </div>
             </div>
+<!--VIDEOS END-->
+
+        <div class="mt-5 mb-5">
+            <img class="separator" src="{{ asset('assets/ink/separateur.svg')}}"><img class="separator-end" src="{{ asset('assets/ink/pois.png')}}">
+        </div>
+
+<!--NEWSLETTEER START-->
+        <div class="row justify-content-center ">
+            <div class="newsletter col-md-6  p-5 pb-5 mb-5 border border-4 border-success text-center">
+                <h1 >La Newsletters</h1>
+                <div class="border-success">
+                    <p class="lead">Vous pouvez vous tenir informer des dernières nouveautés, en vous inscrivant à la newsletter
+                    juste ici : </p>
+                    {% for message in app.flashes('message') %}
+                        <div class="alert alert-info">{{ message }}</div>
+                    {% endfor %}
+                    {{ form(form) }}
+                </div>
+            </div>
+        </div>
+<!--NEWSLETTEER END-->
 
         <!-- /END THE FEATURETTES -->
 

@@ -93,12 +93,22 @@ main{
     right: 0px;
     height: 90vh;
 }
+
+.logo-nav{
+    width: 90px;
+}
 /*navbar*/
 
+/*carousel*/
+
+.text-carousel{
+    font-size: 40px;
+    font-weight: bolder;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 
-
-
+/*carousel end*/
 /*body*/
 
 .body-image{
@@ -122,7 +132,6 @@ main{
 }
 
 .bloc-event{
-    background-color: #0a7467;
     color: white;
 }
 
@@ -142,18 +151,59 @@ main{
     margin-top: 50px;
 }
 
-.img-deco{
-    width: 375px;
-    height: 16vw;
-    object-fit: cover;
-    border: solid 15px #f9c03b;
-    border-radius: 5px;
-    margin-top: -35px;
-    margin-bottom: 35px;
+
+.bloc-img, .img-deco{
+    width: 400px;
+    height: 270px;
 }
+.bloc-img{
+    transition: width 0.2s ease-in-out;
+
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 13px 0px 13px 0px;
+    box-shadow: 10px 10px 0.8px  #f9c03b;
+    border: solid white 3px;
+    margin-top: -50px;
+}
+
+.img-deco{
+    width: 430px;
+    object-fit: cover;
+    border-radius: 13px 0px 13px 0px;
+}
+
+.bc-text{
+    opacity: 0;
+    color: white;
+    background-color: rgb(184, 179, 179,0.3);
+    font-weight: bold;
+    text-align: center;
+    padding-top: 25px;
+    border-radius: 13px 0px 13px 0px;
+    margin-top: -35px;
+    width: auto;
+    height: auto;
+
+}
+
+.bloc-img:hover, .bc-text:hover{
+    opacity: 1;
+    width: 430px;
+
+}
+
+
 /*end bande centrale*/
 
-/*body*/
+/*newsletters*/
+
+.newsletter{
+}
+
+/*end newsletters*/
+
+/* end body*/
 
 
 /*Products*/
@@ -164,6 +214,19 @@ main{
     object-fit: cover;
 }
 /*Products*/
+
+/*UniqProducts*/
+
+.uniq-product-bloc{
+    margin: 0px;
+}
+
+.uniq-product{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+/*UniqProducts end*/
 
 footer{
     bottom: 0px;
@@ -207,11 +270,18 @@ footer h3{
 
 /*responsive*/
 
+/*hidden*/
+.hidden {
+    display: none;
+}
+
+
+/*hidden*/
 
 
 @media all and (max-device-width: 1000px){
 
-    .separator, .separator-end, .footer-blind, .bande-centrale{
+    .separator, .separator-end, .footer-blind{
         display: none;
     }
 
@@ -247,13 +317,17 @@ footer h3{
         width: 94%;
     }
 
-    .video-farm, .video-facade{
+    .video-farm, .video-facade, .to-hide{
         display: none;
+    }
+
+    .hidden{
+        display: block;
     }
 }
 
 @media screen and (max-width: 1000px){
-    .separator, .separator-end, .footer-blind, .bande-centrale{
+    .separator, .separator-end, .footer-blind{
         display: none;
     }
 
@@ -282,6 +356,18 @@ footer h3{
 
     .container{
         width: 94%;
+    }
+    
+    .to-hide{
+        display: none;
+    }
+
+    .hidden{
+        display: block;
+    }
+
+    .bc-text{
+        opacity: 1;
     }
 }
 

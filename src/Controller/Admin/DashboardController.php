@@ -2,9 +2,12 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Carousel;
 use App\Entity\Events;
 use App\Entity\Formation;
+use App\Entity\Newsletters\Users;
 use App\Entity\Products;
+use App\Entity\UniqProduct;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -48,10 +51,13 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
-        yield MenuItem::linkToCrud('Produits', 'fas fa-tag', Products::class);
-        yield MenuItem::linkToCrud('Évenements', 'fas fa-tag', Events::class);
-        yield MenuItem::linkToCrud('Formations', 'fas fa-tag', Formation::class);
-        yield MenuItem::linkToRoute('Retour au site', 'fas fa-tag', 'account');
-        yield MenuItem::linkToLogout('Déconnexion', 'fas fa-tag');
+        yield MenuItem::linkToCrud('Images caroussel', 'fas fa-image', Carousel::class);
+        yield MenuItem::linkToCrud('Paniers', 'fas fa-carrot', Products::class);
+        yield MenuItem::linkToCrud('Produits', 'fas fa-carrot', UniqProduct::class);
+        yield MenuItem::linkToCrud('Évenements', 'fas fa-calendar-days', Events::class);
+        yield MenuItem::linkToCrud('Formations', 'fas fa-calendar-days', Formation::class);
+        yield MenuItem::linkToCrud('Newsletters', 'fas fa-envelopes-bulk', Users::class);
+        yield MenuItem::linkToRoute('Retour au site', 'fas fa-right-from-bracket', 'account');
+        yield MenuItem::linkToLogout('Déconnexion', 'fas fa-power-off');
     }
 }

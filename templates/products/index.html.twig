@@ -47,11 +47,13 @@
                 <p class="lead">Vous vous assurez d'avoir toujours des légumes disponibles et vous êtes solidaires 
                 grâce à un paiement en avance ou en 3 fois, et vous devenez adhérent de Canton 
                 Sème (dans la limite des 40 paniers disponibles).<br>
-                Deux tailles disponibles : <br>
+                Trois tailles disponibles : <br>
                 - Le petit à 10€ (solo ou en couple)<br>
-                - Le grand à 15€ (gourmand ou famille)
+                - Le moyen à 15€ (petites famille)<br>
+                - Le grand à 25€ (gourmands et plus grandes familles)
                 
-                Pour reserver, vous avez la possibilité de nous contacter via le formulaire de <a class="text-success" href="">contact</a>.
+                Pour reserver, vous pouvez vous connecter à votre espace personel. Vous aurez ensuite un onglet pour reserver votre panier. 
+                Vous avez aussi la possibilité de nous contacter via le formulaire de <a class="text-success" href="">contact</a>.
                 Vous pouvez également nous contacter par téléphone au 06.37.87.15.21 (N'hésitez pas à utiliser
                 les SMS, nous pouvons ne pas toujours être disponibles pour répondre directement).<br>
                 Nous pourrons rapidement vous mettre sur la liste des abonnés.</p><br><br>
@@ -66,7 +68,6 @@
                 <img class="body-image-big " src="{{ asset('assets/photos/panier-renverse.jpg')}}" alt="Vente à la ferme" >
             </div>
         </div>
-    
         <div class="mt-5 mb-5">
             <img class="separator" src="{{ asset('assets/ink/separateur.svg')}}"><img class="separator-end" src="{{ asset('assets/ink/pois.png')}}">
         </div>
@@ -90,7 +91,28 @@
                 surprises sont de mise. Attendez vous donc à des légumes plus colorés les uns que les autres.</p>
             </div>
         </div>
+
+</div>
+<div class="container">   
         
-    </div>
+        <div class="mt-5 mb-5">
+            <img class="separator" src="{{ asset('assets/ink/separateur.svg')}}"><img class="separator-end" src="{{ asset('assets/ink/tomate.png')}}">
+        </div>
+
+        <div class="row d-flex align-items-center pb-5 uniq-product-bloc">
+                <h2 class="text-center">Venez également découvrir nos produits au détail</h2>
+                {% for uniqProduct in uniqProducts %}
+                    <div class="col-md-3 m-3 mt-3 shadow p-3 mb-5 ">
+                        <img class="pb-5 uniq-product" src="/pictures/{{ uniqProduct.illustration }}" alt="{{ uniqProduct.name }}">
+                        <h2 class="text-center">{{ uniqProduct.name }}</h2><br>
+                        <h4>{{ uniqProduct.subtitle }}</h4>
+                        <p class="lead">{{ uniqProduct.description }}<br><br>
+                        <strong>Prix :</strong> {{ (uniqProduct.price / 100)|number_format(2, ',', '.') }} €<br>
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        
 </div>
 {% endblock %}

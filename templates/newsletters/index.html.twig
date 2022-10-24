@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription Newsletter{% endblock %}
+
+{% block content %}
+    
+    <h1> les news</h1>
+    {% for message in app.flashes('message') %}
+        <div class="alert alert-info">{{ message }}</div>
+    {% endfor %}
+    {{ form(form) }}
+{% endblock %}
