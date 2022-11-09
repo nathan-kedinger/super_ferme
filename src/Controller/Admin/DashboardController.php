@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Carousel;
 use App\Entity\Events;
+use App\Entity\EventsPictures;
 use App\Entity\Formation;
 use App\Entity\Newsletters\Users;
 use App\Entity\Products;
@@ -52,6 +53,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
         yield MenuItem::linkToCrud('Images caroussel', 'fas fa-image', Carousel::class);
+        yield MenuItem::linkToCrud('Images événements', 'fas fa-image', EventsPictures::class);
         yield MenuItem::linkToCrud('Paniers', 'fas fa-carrot', Products::class);
         yield MenuItem::linkToCrud('Produits', 'fas fa-carrot', UniqProduct::class);
         yield MenuItem::linkToCrud('Évenements', 'fas fa-calendar-days', Events::class);

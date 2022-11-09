@@ -6,8 +6,8 @@ use Mailjet\Resources;
 
 class MailClass
 {
-    private $api_key = 'faec735eeeb57e2f1aefd9c86a759d99';
-    private $secret_key = '59c8b588e4bf92baf1d6eb229417728d';
+    private $api_key = '081b560fac34e51781f9b5dd6331a103';
+    private $secret_key = '8f43a96ed8e7bcf5c714a4d067a57006';
 
     public function send($to_email, $to_name, $subject, $content)
     {
@@ -16,7 +16,7 @@ class MailClass
             'Messages' => [
                 [
                     'From' => [
-                        'Email' => "admin@bts-sio-kedinger.fr",
+                        'Email' => "robin@lasuperferme.fr",
                         'Name' => "La Super Ferme"
                     ],
                     'To' => [
@@ -25,7 +25,7 @@ class MailClass
                             'Name' => $to_name
                         ]
                     ],
-                    'TemplateID' => 4250731, 
+                    'TemplateID' => 4344168, 
                     'TemplateLanguage' => true,
                     'Subject' => $subject,
                     'Variables' => [

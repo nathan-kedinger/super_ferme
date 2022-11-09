@@ -23,7 +23,7 @@ class ContactController extends AbstractController
             //ajouter une api de gestion des echange zendesk?
 
             $mail = new MailClass();
-            $mail->send('nathan.kedinger@gmail.com','La super Ferme', '','');
+            $mail->send('robin@lasuperferme.fr','La super Ferme', '','');
         }
 
         return $this->render('contact/index.html.twig',[
